@@ -1,0 +1,53 @@
+<div class="consent-list-wrapper">
+  <h1>PATIENT CONSENTS</h1>
+  <h2>HIPAA
+    <span (click)="modalAction(true)">
+      <i nz-icon [nzType]="'plus-circle'" [nzTheme]="'fill'" class="icon" title="Add Consent"></i>
+    </span>
+  </h2>
+
+  <div class="hipaa-ag-grid">
+    <ag-grid-angular
+      style="width: 1005px; height: 500px"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      (gridReady)="onGridReady($event)"
+      [overlayNoRowsTemplate]="noRowsTemplate"
+    >
+    </ag-grid-angular>
+  </div>
+
+  <nz-modal
+    [(nzVisible)]="isModalVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="modalAction(false)"
+    >
+    <ng-template #modalTitle>{{ toEditConsent ? 'Edit HIPAA Consent' : 'Add New HIPAA Consent' }}</ng-template>
+
+    <ng-template #modalContent>
+      <div class="form">
+        <div class="datepicker-input">
+          <label>SIGNED:</label>
+          <div>
+            <nz-date-picker [(ngModel)]="date.signedDate" nzFormat="MM/dd/yyyy" [nzDisabledDate]="disabledDate"></nz-date-picker>
+          </div>
+        </div>
+        <div class="datepicker-input">
+          <label>EXPIRES:</label>
+          <div>
+            <nz-date-picker [(ngModel)]="date.expireDate" nzFormat="MM/dd/yyyy" [nzDisabledDate]="disabledDate"></nz-date-picker>
+          </div>
+        </div>
+      </div>
+      <p *ngIf="showValidationMessage" class="invalid-msg">{{ showValidationMessage }}</p>
+    </ng-template>
+
+    <ng-template #modalFooter>
+      <button nz-button nzType="primary" (click)="addNewConsent()" [nzLoading]="isConfirmLoading" title="Save">Save</button>
+      <button nz-button nzType="default" (click)="modalAction(false)" title="Cancel">Cancel</button>
+    </ng-template>
+  </nz-modal>
+</div>

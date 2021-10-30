@@ -1,0 +1,73 @@
+.consent-list-wrapper {
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  .hipaa-ag-grid {
+    margin-top: -12px;
+  }
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    font-weight: 700;
+    width: 1005px;
+    background: #918f8f2b;
+    border-radius: 4px;
+    padding-left: 20px;
+  }
+  span {
+    cursor: pointer;
+    .anticon-plus-circle {
+      color: #52c41a;
+      font-size: 25px;
+    }
+  }
+}
+
+.invalid-msg {
+  color: red;
+  text-align: center;
+  padding-top: 2px;
+}
+
+// AG Grid SCSS
+
+::ng-deep {
+  .icon {
+    font-size: 18px;
+    padding-right: 10px;
+  }
+  .ag-theme-alpine .ag-header-viewport {
+    background-color: #1890ff;
+    border-radius: 4px;
+    .ag-header-row-column {
+      color: #fff;
+      .ag-header-cell {
+        margin-right: 2px;
+      }
+    }
+  }
+}
+
+//Modal SCSS
+
+::ng-deep {
+  .ant-modal-title {
+    font-weight: 700;
+  }
+  .ant-modal-body {
+    .form {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  label {
+    &:before {
+      content: '* ';
+      color: red;
+    }
+  }
+}
+
+
+

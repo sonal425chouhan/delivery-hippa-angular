@@ -1,0 +1,10 @@
+<div class="attach-view-action">
+  <span (click)="view()" nzTooltipTitle="View" nz-tooltip>
+    <i nz-icon [nzType]="'eye'" [nzTheme]="'fill'" class="icon"></i>
+  </span>
+  <span nzTooltipTitle="Attach" nz-tooltip>
+    <nz-upload [nzMultiple]="false" [nzBeforeUpload]="beforeUpload" [nzAccept]="'image/*,.pdf'" >
+      <i nz-icon [nzType]="'file-add'" [nzTheme]="'fill'" class="icon"></i>
+    </nz-upload>
+  </span>
+</div>
