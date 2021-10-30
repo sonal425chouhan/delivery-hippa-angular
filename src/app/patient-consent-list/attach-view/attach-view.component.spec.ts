@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AttachViewComponent } from './attach-view.component';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AttachViewComponent', () => {
   let component: AttachViewComponent;
@@ -8,7 +11,9 @@ describe('AttachViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AttachViewComponent ]
+      imports: [ NzUploadModule, HttpClientModule ],
+      declarations: [ AttachViewComponent ],
+      providers: [ NzMessageService ]
     })
     .compileComponents();
   });

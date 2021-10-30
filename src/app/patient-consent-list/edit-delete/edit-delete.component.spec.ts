@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditDeleteComponent } from './edit-delete.component';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { ConsentService } from '../../core/services/consent.service';
 
 describe('EditDeleteComponent', () => {
   let component: EditDeleteComponent;
@@ -8,7 +10,8 @@ describe('EditDeleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditDeleteComponent ]
+      declarations: [ EditDeleteComponent ],
+      providers: [ { provide: NzModalService, useValue: {} }, ConsentService ]
     })
     .compileComponents();
   });
